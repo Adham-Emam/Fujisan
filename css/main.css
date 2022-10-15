@@ -185,8 +185,7 @@ header .active {
     font-size: 25px;
   }
   header .res-ul {
-    display: block;
-    opacity: 0;
+    display: none;
     position: absolute;
     top: 0;
     right: -200px;
@@ -212,7 +211,7 @@ header .active {
     left: 0;
   }
   header .res-ul-active {
-    opacity: 1;
+    display: block;
     right: 0;
   }
 }
