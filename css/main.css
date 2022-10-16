@@ -195,7 +195,6 @@ header .active {
     z-index: -1;
     list-style-type: none;
     padding-top: 50px;
-    transition: 1s;
   }
   header .res-ul li {
     padding: 30px 10px;
@@ -211,7 +210,15 @@ header .active {
     left: 0;
   }
   header .res-ul-active {
+    animation: menu-active 1s 1 both;
     display: block;
+  }
+}
+@keyframes menu-active {
+  from {
+    right: -200px;
+  }
+  to {
     right: 0;
   }
 }
