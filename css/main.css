@@ -4,6 +4,7 @@
   --first-color: #16c2b1;
   --sec-color: #f9aa33;
   --third-color: #6200ee;
+  --third-color-trans: #6200ee33;
   --fourth-color: #c51162;
 }
 @font-face {
@@ -171,6 +172,51 @@ header .active {
 }
 .setting-active {
   left: 0;
+}
+.setting .setting-item {
+  background-color: white;
+  color: var(--secondary-color);
+  border-radius: 5px;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+.setting .setting-item h3 {
+  padding-top: 15px;
+}
+.setting .color span {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin: 10px 3px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.setting .color .first {
+  background-color: var(--first-color);
+}
+.setting .color .second {
+  background-color: var(--sec-color);
+}
+.setting .color .third {
+  background-color: var(--third-color);
+}
+.setting .color .fourth {
+  background-color: var(--fourth-color);
+}
+.setting .animation div {
+  display: flex;
+  justify-content: center;
+}
+.setting .animation span {
+  background-color: var(--third-color-trans);
+  color: white;
+  margin-bottom: 15px;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+.setting .animation .ani-active {
+  background-color: var(--third-color);
 }
 /* End Setting */
 @media (max-width: 767.98px) {
