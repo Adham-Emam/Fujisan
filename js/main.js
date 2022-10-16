@@ -3,11 +3,12 @@ let imgs = ["bg1.webp", "bg2.webp", "bg3.webp", "bg4.webp", "bg5.jpg"];
 
 let element = document.getElementById("landing");
 
-const change = () => {
+function change() {
   let randBg = Math.floor(Math.random() * imgs.length);
   element.style.backgroundImage = `url(./images/${imgs[randBg]})`;
-};
-setInterval(change, 2000);
+}
+
+let imgChange = setInterval(change, 2000);
 
 let resUl = document.querySelector(".res-ul");
 let menuIcon = document.querySelector(".menu");
@@ -53,8 +54,11 @@ let off = document.querySelector(".off");
 on.onclick = function () {
   on.classList.add("ani-active");
   off.classList.remove("ani-active");
+  imgChange = setInterval(change, 2000);
 };
+
 off.onclick = function () {
   off.classList.add("ani-active");
   on.classList.remove("ani-active");
+  clearInterval(imgChange);
 };
