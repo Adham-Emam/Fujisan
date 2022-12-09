@@ -14,15 +14,18 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <header>
+    <div class="scroller"></div>
+    <header id="header">
       <div class="container">
         <img src="images/Logo main.png" class="logo" />
         <ul class="navbar">
           <li><a href="#" class="active">Home</a></li>
           <li><a href="#about">About Us</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">Contacts</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#timeline">TimeLine</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
         </ul>
         <div class="menu">
           <span></span>
@@ -33,17 +36,25 @@
       <div class="res-ul">
         <li><a href="#" class="active">Home</a></li>
         <li><a href="#about">About Us</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">Contacts</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#timeline">TimeLine</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
       </div>
     </header>
     <div class="nav-bullet">
-      <div class="bullet"><div class="tooltip">About Us</div></div>
-      <div class="bullet"><div class="tooltip">Our Skills</div></div>
-      <div class="bullet"><div class="tooltip">Our Galary</div></div>
-      <div class="bullet"><div class="tooltip">Timeline</div></div>
-      <div class="bullet"><div class="tooltip">Testimonials</div></div>
+      <a href="#header" class="bullet"><div class="tooltip">Home</div></a>
+      <a href="#about" class="bullet"><div class="tooltip">About Us</div></a>
+      <a href="#skills" class="bullet"><div class="tooltip">Our Skills</div></a>
+      <a href="#gallery" class="bullet"
+        ><div class="tooltip">Our Gallery</div></a
+      >
+      <a href="#timeline" class="bullet"><div class="tooltip">Timeline</div></a>
+      <a href="#features" class="bullet"><div class="tooltip">Features</div></a>
+      <a href="#testimonials" class="bullet"
+        ><div class="tooltip">Testimonials</div></a
+      >
     </div>
     <section id="landing">
       <div class="container">
@@ -60,7 +71,7 @@
       </div>
       <div class="color setting-item">
         <h3>Color</h3>
-        <span class="first"></span>
+        <span class="active first"></span>
         <span class="second"></span>
         <span class="third"></span>
         <span class="fourth"></span>
@@ -72,6 +83,7 @@
           <span onclick="stop" class="off">Off</span>
         </div>
       </div>
+      <button class="reset">Reset Default</button>
     </div>
     <section id="about">
       <div class="container">
@@ -119,32 +131,32 @@
         </div>
       </div>
     </section>
-    <section id="galary">
-      <h2>Our Galary</h2>
+    <section id="gallery">
+      <h2>Our Gallery</h2>
       <div class="container">
         <div class="box">
-          <img src="images/galary (1).jpg" alt="" />
+          <img src="images/gallery (1).jpg" alt="" />
         </div>
         <div class="box">
-          <img src="images/galary (2).jpg" alt="" />
+          <img src="images/gallery (2).jpg" alt="" />
         </div>
         <div class="box">
-          <img src="images/galary (3).jpg" alt="" />
+          <img src="images/gallery (3).jpg" alt="" />
         </div>
         <div class="box">
-          <img src="images/galary (4).jpg" alt="" />
+          <img src="images/gallery (4).jpg" alt="" />
         </div>
         <div class="box">
-          <img src="images/galary (5).jpg" alt="" />
+          <img src="images/gallery (5).jpg" alt="" />
         </div>
         <div class="box">
-          <img src="images/galary (6).jpg" alt="" />
+          <img src="images/gallery (6).jpg" alt="" />
         </div>
         <div class="box">
-          <img src="images/galary (7).jpg" alt="" />
+          <img src="images/gallery (7).jpg" alt="" />
         </div>
         <div class="box">
-          <img src="images/galary (8).jpg" alt="" />
+          <img src="images/gallery (8).jpg" alt="" />
         </div>
       </div>
     </section>

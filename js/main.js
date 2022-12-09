@@ -1,3 +1,13 @@
+// Page Scroll Progress
+let scroller = document.querySelector(".scroller");
+let height =
+  document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+window.addEventListener("scroll", () => {
+  let scrollTop = document.documentElement.scrollTop;
+  scroller.style.width = `${(scrollTop / height) * 100}%`;
+});
+
 /* BG Rotation */
 let imgs = ["bg1.webp", "bg2.webp", "bg3.webp", "bg4.webp", "bg5.jpg"];
 
@@ -51,11 +61,20 @@ linksArray.forEach((li) => {
     e.currentTarget.classList.add("active");
   });
 });
+let colorsArray = document.querySelectorAll(".setting .color span");
 let logo = document.querySelector(".logo");
 let first = document.querySelector(".first");
 let second = document.querySelector(".second");
 let third = document.querySelector(".third");
 let fourth = document.querySelector(".fourth");
+
+colorsArray.forEach((color) => {
+  color.addEventListener("click", (e) => {
+    colorsArray.forEach((el) => el.classList.remove("active"));
+    localStorage.setItem("active-color", e.currentTarget.classList);
+    e.currentTarget.classList.add("active");
+  });
+});
 
 first.onclick = function () {
   document.documentElement.style.setProperty("--main-color", "#16c2b1");
@@ -93,6 +112,23 @@ window.addEventListener("load", () => {
       logo.setAttribute("src", window.localStorage.getItem("logo-color"));
     }
   }
+  if (window.localStorage.getItem("animation") == "on") {
+    on.classList.add("ani-active");
+    off.classList.remove("ani-active");
+    imgChange = setInterval(change, 2000);
+  } else if (window.localStorage.getItem("animation") == "off") {
+    off.classList.add("ani-active");
+    on.classList.remove("ani-active");
+    clearInterval(imgChange);
+  }
+  if (window.localStorage.getItem("active-color")) {
+    colorsArray.forEach((color) => {
+      color.classList.remove("active");
+      if (window.localStorage.getItem("active-color") == color.classList) {
+        color.classList.add("active");
+      }
+    });
+  }
 });
 
 let on = document.querySelector(".on");
@@ -112,19 +148,13 @@ off.onclick = function () {
   window.localStorage.setItem("animation", "off");
 };
 
-window.onload = function () {
-  if (window.localStorage.getItem("animation") == "on") {
-    on.classList.add("ani-active");
-    off.classList.remove("ani-active");
-    imgChange = setInterval(change, 2000);
-  } else if (window.localStorage.getItem("animation") == "off") {
-    off.classList.add("ani-active");
-    on.classList.remove("ani-active");
-    clearInterval(imgChange);
-  }
-};
+// reset button
+document.querySelector(".reset").addEventListener("click", () => {
+  window.localStorage.clear();
+  window.location.reload();
+});
 
-// Skills Animation on scroll
+// Skills width Animation on scroll
 let skillsContainer = document.querySelector("#skills");
 let skillSpans = document.querySelectorAll("#skills .skill span");
 let skillProgress = [...skillSpans];
@@ -151,9 +181,9 @@ function remove() {
   }
 }
 
-// Galary Popup
+// gallery Popup
 
-let imageBox = document.querySelectorAll("#galary .box img");
+let imageBox = document.querySelectorAll("#gallery .box img");
 let imgsArray = [...imageBox];
 
 imgsArray.forEach((img) => {
@@ -186,12 +216,3 @@ imgsArray.forEach((img) => {
 });
 
 // bullet scroll function
-let bullets = document.querySelectorAll(".bullets");
-
-bullets.forEach((bullet) => {
-  bullet.addEventListener("click", (e) => {
-    document.getElementById("#about").scrollIntoView({
-      behavior: "smooth",
-    });
-  });
-});

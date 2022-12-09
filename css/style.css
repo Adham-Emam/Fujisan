@@ -8,17 +8,32 @@
   --third-color-trans: #276fbf33;
   --fourth-color: #c51162;
 }
+* {
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  display: none;
+}
 body {
   font-family: "Cairo", sans-serif;
   font-family: cairo;
   position: relative;
-  scroll-behavior: smooth;
 }
 a {
   text-decoration: none;
 }
 .container {
   margin: auto;
+}
+.scroller {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 0px;
+  height: 4px;
+  border-radius: 0 5px 5px 0;
+  background-color: var(--main-color);
+  z-index: 200;
 }
 /* small */
 @media (min-width: 768px) {
@@ -98,6 +113,7 @@ header a {
   color: white;
   font-weight: 600;
   transition-duration: 0.3s;
+  padding: 0 5px;
 }
 header a:hover,
 header .active {
@@ -114,12 +130,13 @@ header .active {
   z-index: 10;
 }
 .nav-bullet .bullet {
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   margin-top: 10px;
   border: 3px solid var(--main-color);
   position: relative;
+  display: block;
 }
 .nav-bullet .tooltip {
   background-color: var(--main-color);
@@ -129,7 +146,8 @@ header .active {
   position: absolute;
   right: 0px;
   opacity: 0;
-  top: -5px;
+  top: -7.5px;
+  border-radius: 5px 0 0 5px;
   text-align: center;
   transition: 0.5s;
   pointer-events: none;
@@ -189,6 +207,9 @@ header .active {
   color: var(--main-color);
   text-transform: uppercase;
 }
+#landing p {
+  max-width: 500px;
+}
 /* End Landing */
 /* Start Setting */
 .setting {
@@ -239,6 +260,10 @@ header .active {
   margin: 10px 3px;
   border-radius: 50%;
   cursor: pointer;
+  opacity: 0.2;
+}
+.setting .color span.active {
+  opacity: 1;
 }
 .setting .color .first {
   background-color: var(--first-color);
@@ -257,14 +282,31 @@ header .active {
   justify-content: center;
 }
 .setting .animation span {
-  background-color: var(--third-color-trans);
+  background-color: var(--main-color);
   color: white;
   margin-bottom: 15px;
   padding: 5px 15px;
   cursor: pointer;
+  opacity: 0.2;
 }
 .setting .animation .ani-active {
-  background-color: var(--third-color);
+  background-color: var(--main-color);
+  opacity: 1;
+}
+.setting .reset {
+  background-color: #f21;
+  color: white;
+  display: block;
+  margin: 30px auto;
+  padding: 10px 20px;
+  opacity: 0.8;
+  transition: 0.3s;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.setting .reset:hover {
+  opacity: 1;
 }
 /* End Setting */
 /* Start About */
@@ -334,24 +376,24 @@ header .active {
   transition: width 5s;
 }
 /* End Skills */
-/* Start galary */
-#galary {
+/* Start gallery */
+#gallery {
   margin: 100px 0;
 }
-#galary h2 {
+#gallery h2 {
   color: var(--main-color);
   font-size: 2em;
   margin-bottom: 50px;
   text-align: center;
 }
-#galary .container {
+#gallery .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
 }
-#galary .box {
+#gallery .box {
   background-color: #eee;
   padding: 10px;
   margin: auto;
@@ -359,10 +401,10 @@ header .active {
   overflow: hidden;
   cursor: pointer;
 }
-#galary .box:hover img {
+#gallery .box:hover img {
   transform: scale(1.2) rotate(5deg);
 }
-#galary .box img {
+#gallery .box img {
   width: 100%;
   aspect-ratio: 16/10;
   transition: 0.5s;
@@ -403,7 +445,7 @@ header .active {
 .popup img {
   width: 100%;
 }
-/* End galary */
+/* End gallery */
 /* Start Timeline */
 #timeline {
   background-color: #eee;
@@ -586,7 +628,7 @@ header .active {
 }
 /* End Testimonials */
 @media (max-width: 991.98px) {
-  #galary .box {
+  #gallery .box {
     flex-basis: 45%;
   }
   #features .container .content div {
@@ -703,11 +745,14 @@ header .active {
   .popup {
     width: 70%;
   }
-  #galary .box {
+  #gallery .box {
     flex-basis: 100%;
   }
   #features .container .content div {
     flex: 1 1 100%;
+  }
+  .nav-bullet {
+    display: none;
   }
 }
 @keyframes menu-active {
