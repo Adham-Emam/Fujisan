@@ -215,4 +215,6 @@ imgsArray.forEach((img) => {
   });
 });
 
-// bullet scroll function
+// footer Date
+let dateNow = new Date();
+document.querySelector("footer .container span").append(dateNow.getFullYear());

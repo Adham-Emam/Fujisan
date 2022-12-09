@@ -627,6 +627,84 @@ header .active {
   color: white;
 }
 /* End Testimonials */
+/* Start Contact */
+#contact {
+  margin: 50px 0;
+  padding: 50px 0;
+  position: relative;
+  background-image: url(../images/World\ Map.svg);
+  background-size: cover;
+}
+#contact .container h2 {
+  text-align: center;
+  color: var(--main-color);
+  font-weight: bold;
+  font-size: 2em;
+}
+#contact .container form {
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+#contact .container form div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  height: 260px;
+}
+#contact .container form div textarea,
+#contact .container form div input {
+  border: none;
+  width: 90%;
+  border: 2px solid #aaa;
+  background-color: #bbbbbb4d;
+  padding: 10px 20px;
+}
+#contact .container form div textarea {
+  height: 208px;
+  resize: none;
+}
+#contact .container form div textarea:focus,
+#contact .container form div input:focus {
+  outline: none;
+}
+#contact .container form div .submit {
+  width: 100%;
+  color: white;
+  background-color: var(--main-color);
+  cursor: pointer;
+  border: none;
+  margin-top: 20px;
+}
+/* End Contact */
+/* Start footer */
+footer {
+  background-color: #333;
+  padding: 10px;
+}
+footer .container {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .container p strong {
+  color: var(--main-color);
+  text-transform: uppercase;
+}
+footer .container div i {
+  color: white;
+  font-size: 1.2em;
+  margin: 0 5px;
+}
+footer .container div i:hover {
+  color: var(--main-color);
+}
+/* End footer */
 @media (max-width: 991.98px) {
   #gallery .box {
     flex-basis: 45%;
@@ -740,6 +818,13 @@ header .active {
   #testimonials .content .user {
     flex-basis: 100%;
   }
+  #contact .container form {
+    flex-direction: column;
+  }
+  #contact .container form div {
+    width: 90%;
+    gap: 10px;
+  }
 }
 @media (max-width: 500px) {
   .popup {
@@ -753,6 +838,9 @@ header .active {
   }
   .nav-bullet {
     display: none;
+  }
+  footer .container {
+    flex-direction: column;
   }
 }
 @keyframes menu-active {
